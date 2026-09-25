@@ -1,0 +1,12 @@
+{
+  "name": "competitive-typing",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.19.0",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "check:repo": "node scripts/check-repo.mjs"
+  }
+}

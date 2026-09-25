@@ -163,6 +163,9 @@ Bu sahipler rol tanımıdır; bugün atanmış ekip varmış gibi kabul edilmez.
 
 ## 7. Uygulama bağımlılık sırası
 
+Bu bölüm fazların gerekçeli özetidir. Ayrıntılı task ID, dependency graph, test/telemetry/UX
+kabulü [ROADMAP](ROADMAP.md) içinde; gerçek ilerleme [STATUS](STATUS.md) içindedir.
+
 Aşağıdaki adımlar bu oturumda başlatılmadı. Her adım, öncekinin kabul çıktısı üzerine kurulur; kapsam bitmeden başka faza sıçranmaz.
 
 ### 0 — Karar tabanı ve alfa hazırlığı

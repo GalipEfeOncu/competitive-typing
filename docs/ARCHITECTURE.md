@@ -349,3 +349,50 @@ Resend resmî karşılaştırması 3.000 email ücretsiz ve 50.000 için $20 ör
 Maç katılımı 20 yerine 100/ay ise canlı trafik/input/ortalama concurrency yaklaşık 5 katına çıkar. Peak faktörü 10 yerine 50 ise gereken tepe kapasite ayrıca 5 katına çıkar. 50 oyunculu fanout ve spectator hacmi bu 1v1 modelinden hesaplanamaz; ayrı bütçelenir. Loglara her input'u yazmak veya session replay'i herkese açmak bu aralıkları kolayca geçirebilir.
 
 Vendor lock-in azaltma: standart PostgreSQL migration/export, container tabanlı Node server, portable content/scoring paketleri; Auth ve Storage provider adaptörleri. Supabase Auth identity/session migration yine gerçek projedir, sıfır maliyetli geçiş diye sunulmaz. İkinci bir sağlayıcıyı sıcak yedek olarak MVP'de işletmeyiz.
+
+## 15. Uygulama deposu ve modül sahipliği
+
+**25 Eylül 2026 aktarımı:** küçük pnpm workspace kararı somutlaştırıldı;
+[ADR 0001](adr/0001-workspace-boundaries.md). Bu bölüm organizasyondur, çalışan modül iddiası değil.
+
+```text
+apps/
+  web/                       React/Vite; UI ve browser adapters
+  server/                    tek Fastify/Socket.IO uygulaması
+    db/migrations/           gözden geçirilmiş SQL + Drizzle metadata
+packages/
+  typing-core/               portable saf reducer/replay/scoring
+  contracts/                 public runtime schemas + inferred types
+scripts/                     repo/dev/release araçları (ihtiyaç kadar)
+tests/                       cross-boundary DB/HTTP/WS/E2E/load
+  (tier dizinleri ilgili implementasyonla açılır)
+docs/
+  adr/                       önemli karar gerekçeleri
+  archive/                   değiştirilmeyen ilk taslaklar
+```
+
+Bugün paket kökleri manifest + boundary README içerir. `src` dosyaları M0.1/M1'de;
+geleceğin features/servisleri için boş barrel veya generic repository üretilmez.
+Web `src/ui` ortak component sahibidir; ikinci UI tüketicisi yokken UI paketi açılmaz.
+Server `src/config` ortam validation; `src/db` SQL/schema/transaction adapter; `src/modules`
+içinde identity/content/solo/matchmaking/match-runtime/results/ratings/moderation/analytics/jobs
+ilgili dilim geldiğinde açılır. HTTP/realtime adapters module use-case çağırır;
+transport handler içinde rating formülü veya dağınık SQL transaction bulunmaz.
+
+Bağımlılık yönü: web/server → contracts ve typing-core; contracts → core public tipleri
+(type-only ihtiyaç varsa); core → hiçbir uygulama/adaptör. Web → server veya shared → app
+import yasak. Database models/public DTO aynı tip değildir. Public export yüzeyi küçük;
+package dışından src deep-import yapılmaz. Boundaries M0.1 lint/build ile uygulanır.
+
+Domain rating/queue server içinde saf fonksiyonlar olarak test edilir; browser rating
+hesaplamaz. Match-runtime transient authority ve state machine sahibidir; results
+transaction/ledger/outbox sahibidir. Analytics consumer ranked sonucu değiştiremez.
+Shared types yalnız payload ve public rules; secrets/private fraud eşikleri server'da kalır.
+
+Root config ortak toolchain; app config kendi Vite/server build; production config env'den
+validated server module'a. Dört package aynı lockfile kullanır. Gerçek migration bir
+release adımı; server startup veya browser code schema değiştirmez.
+
+Operasyon belgeleri: [ROADMAP](ROADMAP.md), [STATUS](STATUS.md), [DEVELOPMENT](DEVELOPMENT.md),
+[TESTING](TESTING.md), [DEPLOYMENT](DEPLOYMENT.md), [SECURITY](../SECURITY.md).
+Ürün/UX mevcut kök dosyalarda kalır; PRODUCT.md/UI_UX.md kopyası açılmaz.
