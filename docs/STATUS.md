@@ -52,6 +52,34 @@
 - Bağımlılık, ürün kodu, veri veya telemetry değişikliği yok; uygulama test/build
   henüz mevcut değil. Deployment yapılmadı. Sıradaki görev **M0.1** olarak kalır.
 
+### GTM-RESEARCH — done — 25 Eylül 2026
+
+- Kullanıcının ayrı araştırma isteği tamamlandı: [GO_TO_MARKET](../GO_TO_MARKET.md)
+  ve README bağlantısı; 25 başlıkta rakip/topluluk araştırması, kanal öncelikleri,
+  eşzamanlı oyuncu planı, bütçe deneyleri, içerik takvimi ve metrik tanımları.
+- Kaynak gözlemleri, tarihsel örnekler, bilinmeyenler ve deney önerileri ayrıldı;
+  Season 1/adaptif çalışma/grup yarışı MVP taahhüdüne dönüştürülmedi.
+- `pnpm check:repo`: geçti; 28 güncel Markdown dosyası ve mevcut repo kontrolleri.
+  `git diff --check`: geçti. Harici kaynaklar araştırıldı; tüm dış URL'lerin
+  erişilebilirliğini kontrol eden otomatik bir tarama çalıştırılmadı.
+- Kod, bağımlılık veya mimari değişmedi. Uygulama test/build, canlı edinim deneyi,
+  topluluk/creator mesajı, reklam harcaması ve deployment yapılmadı.
+- Kalan GTM kapıları: çalışan ürün, gerçek pilot/retention, topluluk izinleri,
+  creator teklifleri, hedef pazar ve operasyon sahipleri. **Sıradaki mühendislik
+  görevi M0.1 olarak kalır.**
+
+### GTM-PUBLISH — done — 26 Eylül 2026
+
+- Bekleyen GO_TO_MARKET, README bağlantısı ve GTM durum kaydı birlikte incelendi.
+  README bağlantısı proje belgeleri listesine alındı; uzun araştırma özeti kaldırıldı.
+- Kapsam, queue/pair kuralları ve retention tanımları canonical belgelerle
+  karşılaştırıldı. Dış kaynak gözlemleri 25 Eylül tarihli araştırma olarak korundu;
+  bu yayın incelemesinde dış kaynakların güncelliği yeniden doğrulanmadı.
+- `pnpm check:repo` ve staged whitespace kontrolü geçti; uygulama kodu/bağımlılığı
+  değişmedi. Ürün test/build/deploy uygulanabilir değil; sıradaki görev M0.1.
+
+### Kayıt şablonu
+
 Her biten task için kısa satır ekle: `ID — durum — değişen dosyalar/commit — çalıştırılan
 kontroller ve sonuç — kalan engel`. Ardından sıradaki ID'yi değiştir. Durumlar:
 `todo`, `in_progress`, `blocked`, `done`; `done` yalnızca kabul kanıtıyla.

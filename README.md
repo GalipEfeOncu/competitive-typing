@@ -38,6 +38,7 @@ sunulmayacak. İlk sürüm kısa, anlaşılır ve tekrar oynanabilir bir deneyim
 - [Ekranlar ve kullanıcı deneyimi](competitive_typing_platform_ui_ux.md)
 - [Elo ve eşleştirme kuralları](docs/RANKING_MATCHMAKING.md)
 - [Yol haritası](docs/ROADMAP.md) · [Güncel geliştirme durumu](docs/STATUS.md)
+- [Pazara giriş ve kullanıcı edinimi araştırması](GO_TO_MARKET.md)
 
 ## Geliştirme
 
