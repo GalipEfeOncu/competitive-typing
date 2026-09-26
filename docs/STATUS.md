@@ -1,6 +1,6 @@
 # Uygulama durumu
 
-**Son güncelleme: 25 Eylül 2026.** Tek ilerleme kaydı bu dosyadır.
+**Son güncelleme: 26 Eylül 2026.** Tek ilerleme kaydı bu dosyadır.
 
 - Tamamlandı: mimari aktarımı, workspace sınırları, ADR'ler, görev grafiği ve repo kontrolü.
 - Aktif milestone: **M0 — çalıştırılabilir geliştirme tabanı**.
@@ -36,6 +36,20 @@
 - CI dosyası eklendi; GitHub üzerinde çalıştırılmadı. Ürün test/build/deploy yapılmadı.
 
 ## Güncelleme biçimi
+
+### REPO-CI-README — done — 26 Eylül 2026
+
+- README proje tanıtımı, planlanan deneyim ve mevcut durum etrafında düzenlendi;
+  uygulama başlangıç sırası ve açık teknik kapılar DEVELOPMENT'a taşındı.
+- GitHub run `36135516615`: repo kontrolleri geçti, depth=1 checkout nedeniyle
+  arşivdeki tarihsel satır sonu boşlukları `git show --check` adımını düşürdü.
+- Workflow `Repository checks` olarak adlandırıldı; fetch-depth=2 ve yalnızca
+  değişmeden saklanan `docs/archive/` için whitespace istisnası eklendi.
+- Geçici temiz clone'da eski hata tekrarlandı, yeni komut geçti; güncel dosyaya
+  eklenen whitespace hatası yine reddedildi. `pnpm check:repo` ve
+  `git diff --check` geçti. GitHub'daki yeni run sonucu push sonrası doğrulanacak.
+- Bağımlılık, ürün kodu, veri veya telemetry değişikliği yok; uygulama test/build
+  henüz mevcut değil. Deployment yapılmadı. Sıradaki görev **M0.1** olarak kalır.
 
 Her biten task için kısa satır ekle: `ID — durum — değişen dosyalar/commit — çalıştırılan
 kontroller ve sonuç — kalan engel`. Ardından sıradaki ID'yi değiştir. Durumlar:

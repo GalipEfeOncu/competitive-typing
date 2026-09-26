@@ -121,3 +121,30 @@ Elo/ruleset/time-window gibi iş kuralları env toggle değildir; sürümlü dom
 `test:integration`, `test:realtime`, `test:e2e`, `test:load` ilgili ilk feature ile eklenecek;
 [TESTING](TESTING.md) kapsam ve milestone sahipliğini belirtir. Dokümanda listelenmiş olmak
 script'in mevcut olduğu anlamına gelmez. STATUS mevcut komutları güncel tutar.
+
+## Belgeler ve uygulamaya başlama sırası
+
+[AGENTS](../AGENTS.md) → [STATUS](STATUS.md) → [ROADMAP M0](ROADMAP.md) sırasını izle.
+İlk görev M0.1: exact-pinned araç zinciri, strict TypeScript/lint/test/build ve boş
+web/server bootstrap. Typing/auth/DB/realtime özellikleri ayrı görevlerde uygulanır.
+Shared UI web paketinde, DB/rating server paketinde kalır; dört paket dört servis değildir.
+
+Ürün kapsamının sahibi [ürün belgesi](../competitive_typing_platform_project.md),
+etkileşimlerin sahibi [UX belgesi](../competitive_typing_platform_ui_ux.md), rating ve
+kuyruk kurallarının sahibi [ranking](RANKING_MATCHMAKING.md), protokol ve veri kurallarının
+sahibi [mimari](ARCHITECTURE.md) belgesidir. [Validation](VALIDATION_ROADMAP.md)
+ölçüm kapılarını; [kararlar ve kaynaklar](DECISIONS_SOURCES.md) ile
+[ADR dizini](adr/README.md) karar gerekçelerini tutar. Arşivdeki hükümler yürürlükte değildir.
+
+Açık uygulama kapıları: tam 1K corpus kaynağı/lisansı, paket patch sürümleri (M0.1),
+gerçek Supabase PostgreSQL major'ı, pilot RTT ve kullanıcı grubu, incident/review sorumlusu,
+ölçülmüş kapasite/admission cap ve hedef pazar/yaş/consent koşulları.
+Görsel token/font seçimi M2'de yapılır. Yayın öncesi rozet aralıkları alfa verisiyle
+incelenir; rating kuralları sessizce değiştirilmez. Güncel takip STATUS'tadır.
+
+## GitHub repo kontrolü
+
+`Repository checks` workflow'u repo/doküman yapısını ve son commit'in boşluk hatalarını
+kontrol eder. Checkout iki commit getirir; böylece son commit ebeveyniyle karşılaştırılır.
+Değiştirilmeden korunan `docs/archive/` snapshot'ları boşluk kontrolünden hariçtir;
+güncel dosyalar kontrol edilmeye devam eder. Bu workflow uygulama test/build kanıtı değildir.
