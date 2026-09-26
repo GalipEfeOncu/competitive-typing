@@ -47,7 +47,8 @@
   değişmeden saklanan `docs/archive/` için whitespace istisnası eklendi.
 - Geçici temiz clone'da eski hata tekrarlandı, yeni komut geçti; güncel dosyaya
   eklenen whitespace hatası yine reddedildi. `pnpm check:repo` ve
-  `git diff --check` geçti. GitHub'daki yeni run sonucu push sonrası doğrulanacak.
+  `git diff --check` geçti. GitHub [run 36231020131](https://github.com/GalipEfeOncu/competitive-typing/actions/runs/36231020131)
+  `601fd24` commit'inde başarılı tamamlandı.
 - Bağımlılık, ürün kodu, veri veya telemetry değişikliği yok; uygulama test/build
   henüz mevcut değil. Deployment yapılmadı. Sıradaki görev **M0.1** olarak kalır.
 
